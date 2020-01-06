@@ -1,0 +1,56 @@
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.specrow{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2.5vw;
+    flex: 100%;
+}
+
+[class*="col-"] {
+    display: inline-flex;
+    box-sizing: border-box;
+  }
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: calc(8.333333% * #{$i});
+        flex-basis: calc(8.333333% * #{$i});
+    }
+}
+
+@media(max-width: 767px){
+    @for $i from 1 through 12 {
+        .col-sm-#{$i} {
+            width: calc(8.333333% * #{$i});
+            flex-basis: calc(8.333333% * #{$i});
+        }
+    }
+}
+@media(min-width: 768px){
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            width: calc(8.333333% * #{$i});
+            flex-basis: calc(8.333333% * #{$i});
+        }
+    }
+}
+@media(min-width: 992px){
+    @for $i from 1 through 12 {
+        .col-lg-#{$i} {
+            width: calc(8.333333% * #{$i});
+            flex-basis: calc(8.333333% * #{$i});
+        }
+    }
+}
+@media(min-width: 1200px){
+    @for $i from 1 through 12 {
+        .col-xl-#{$i} {
+            width: calc(8.333333% * #{$i});
+            flex-basis: calc(8.333333% * #{$i});
+        }
+    }
+}

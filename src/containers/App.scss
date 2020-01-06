@@ -1,0 +1,83 @@
+@import '../sass/variables.scss';
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  position: relative;
+  height: 100vh;
+
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 100%;
+    color: $fontcolor;
+    background-color: blue;
+  }
+  main{
+    display: flex;
+    height: 70vh;
+    justify-self: center;
+    width: 80vw;
+    margin: 0 auto;
+  }
+  footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    height: 10vh;
+    width: 100%;
+    color: $fontcolor;
+    background-color: black;
+  }
+  p{
+    color: $fontcolor;
+    font-size: $fontbasic;
+    font-family: $Montserrat;
+  }
+  h1, h2 ,h3, h4, h5, h6{
+    color: $fontcolor;
+    font-family: $Roboto;
+    margin: 0 1% 1%;
+  }
+  h1{
+    font-size: $fonthuge;
+  }
+  h2{
+    font-size: $fontlarge;
+  }
+  h3{
+    font-size: $fontbig;
+  }
+  h4{
+    font-size: $fontfine;
+  }
+  h5{
+    font-size: $fontmiddle;
+  }
+  h6{
+    font-size: $fontlittle;
+  }
+  
+}
+@media (max-width: 767px){
+
+  h1, h2 ,h3, h4, h5, h6, p, .Icon{
+    transform: scale(0.8);
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  h1, h2 ,h3, h4, h5, h6, p, .Icon{
+    transform: scale(0.85);
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  h1, h2 ,h3, h4, h5, h6, p, .Icon{
+    transform: scale(0.9);
+  }
+}
