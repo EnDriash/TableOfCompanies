@@ -16,25 +16,23 @@ function TableRow({ data }) {
 }
 
 TableRow.propTypes = {
-  data: PropTypes.objectOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      city: PropTypes.string,
-      sum: PropTypes.number,
-      avarege: PropTypes.number,
-      last: PropTypes.number
-    })
-  )
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    sum: PropTypes.number.isRequired,
+    average: PropTypes.number.isRequired,
+    last: PropTypes.number.isRequired
+  })
 }
 
 TableRow.defaultProps = {
   data: {
-    id: "1",
+    id: 1,
     name: "Warsaw Comapny",
     city: "Warsaw",
     sum: 342234.21,
-    avarege: 342234.21,
+    average: 342234.21,
     last: 342234.21
   }
 }

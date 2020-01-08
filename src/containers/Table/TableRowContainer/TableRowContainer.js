@@ -10,7 +10,7 @@ const TableRowContainer = ({ data }) => {
   return (
     <Auxilliary>
       {data.map(elem => {
-        return <TableRow data={elem} />
+        return <TableRow key={elem.id} data={elem} />
       })}
     </Auxilliary>
   )
