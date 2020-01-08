@@ -28,3 +28,31 @@ $fonthuge: 8em;
 
 $Montserrat: 'Montserrat', sans-serif;
 $Roboto: 'Roboto Slab', serif;
+
+p{
+	font-size: $fontbasic;
+	font-family: $Montserrat;
+}
+h1, h2 ,h3, h4, h5, h6{
+	color: $fontcolor;
+	font-family: $Roboto;
+	margin: 0 1% 1%;
+}
+h1{
+	font-size: $fonthuge;
+}
+h2{
+	font-size: $fontlarge;
+}
+h3{
+	font-size: $fontbig;
+}
+h4{
+	font-size: $fontfine;
+}
+h5{
+	font-size: $fontmiddle;
+}
+h6{
+	font-size: $fontlittle;
+}

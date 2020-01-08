@@ -1,0 +1,32 @@
+.Table {
+  table {
+    margin-bottom: 1rem;
+    color: black;
+    border: 1px solid #f2f2f2;
+    border-bottom: 2px double #f2f2f2;
+    border-collapse: collapse;
+
+    tr.TableRow {
+      width: 100%;
+    }
+    th,
+    td {
+      padding: 10px 35px 10px 15px;
+    }
+
+    thead {
+      background-color: blue;
+      font-weight: 900;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      th {
+        padding: 10px 35px 10px 15px;
+        text-align: left;
+        vertical-align: bottom;
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+  }
+}

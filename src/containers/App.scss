@@ -12,17 +12,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    height: 13vh;
     width: 100%;
     color: $fontcolor;
     background-color: blue;
   }
   main{
     display: flex;
-    height: 70vh;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 75vh;
     justify-self: center;
     width: 80vw;
-    margin: 0 auto;
+    margin: 1vh auto;
+    box-shadow: $darknesscolor 2px 2px 8px;
   }
   footer{
     display: flex;
@@ -34,34 +37,6 @@
     width: 100%;
     color: $fontcolor;
     background-color: black;
-  }
-  p{
-    color: $fontcolor;
-    font-size: $fontbasic;
-    font-family: $Montserrat;
-  }
-  h1, h2 ,h3, h4, h5, h6{
-    color: $fontcolor;
-    font-family: $Roboto;
-    margin: 0 1% 1%;
-  }
-  h1{
-    font-size: $fonthuge;
-  }
-  h2{
-    font-size: $fontlarge;
-  }
-  h3{
-    font-size: $fontbig;
-  }
-  h4{
-    font-size: $fontfine;
-  }
-  h5{
-    font-size: $fontmiddle;
-  }
-  h6{
-    font-size: $fontlittle;
   }
   
 }
