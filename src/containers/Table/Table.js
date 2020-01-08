@@ -5,7 +5,11 @@ import TableRowContainer from "./TableRowContainer/TableRowContainer"
 
 class Table extends Component {
   state = {
-    data: []
+    data: [],
+    sort: {
+      cat: "id",
+      isIncrease: true
+    }
   }
 
   componentDidMount() {
@@ -15,7 +19,7 @@ class Table extends Component {
   initApp() {
     let data
     let sum
-    let avarage
+    let average
     let last
 
     const sumCounter = incomes => {
@@ -51,9 +55,9 @@ class Table extends Component {
           ).then(resp => {
             const { incomes } = resp.data
             sum = sumCounter(incomes)
-            avarage = Math.round((sum / incomes.length) * 100) / 100
+            average = Math.round((sum / incomes.length) * 100) / 100
             last = lastIncomeFinder(incomes)
-            return { ...elem, sum, avarage, last }
+            return { ...elem, sum, average, last }
           })
         })
       })
@@ -67,6 +71,31 @@ class Table extends Component {
       })
   }
 
+  sortHandler(header) {
+    // eslint-disable-next-line prefer-const
+    let { data, sort } = this.state
+    if (sort.cat !== header) {
+      if (header === "name" || header === "city") {
+        data = data.sort()
+        data = data.sort((a, b) => {
+          return a[header].localeCompare(b[header])
+        })
+        this.setState({ data, sort: { cat: header, isIncrease: true } })
+      } else {
+        data = data.sort((a, b) => {
+          return a[header] - b[header]
+        })
+        this.setState({ data, sort: { cat: header, isIncrease: true } })
+      }
+    } else {
+      data = data.reverse()
+      this.setState(state => ({
+        data,
+        sort: { cat: header, isIncrease: !state.isIncrease }
+      }))
+    }
+  }
+
   render() {
     const { data } = this.state
     return (
@@ -74,12 +103,48 @@ class Table extends Component {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>City</th>
-              <th>Total</th>
-              <th>Avarage</th>
-              <th>Last</th>
+              <th
+                onClick={() => {
+                  this.sortHandler("id")
+                }}
+              >
+                ID
+              </th>
+              <th
+                onClick={() => {
+                  this.sortHandler("name")
+                }}
+              >
+                Name
+              </th>
+              <th
+                onClick={() => {
+                  this.sortHandler("city")
+                }}
+              >
+                City
+              </th>
+              <th
+                onClick={() => {
+                  this.sortHandler("sum")
+                }}
+              >
+                Total
+              </th>
+              <th
+                onClick={() => {
+                  this.sortHandler("average")
+                }}
+              >
+                Average
+              </th>
+              <th
+                onClick={() => {
+                  this.sortHandler("last")
+                }}
+              >
+                Last
+              </th>
             </tr>
           </thead>
           <tbody>

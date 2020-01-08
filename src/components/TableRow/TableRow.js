@@ -9,7 +9,7 @@ function TableRow({ data }) {
       <td>{data.name}</td>
       <td>{data.city}</td>
       <td>{data.sum}</td>
-      <td>{data.avarage}</td>
+      <td>{data.average}</td>
       <td>{data.last}</td>
     </tr>
   )
