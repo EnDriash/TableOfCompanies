@@ -1,4 +1,5 @@
 {
+  "homepage": "http://gitname.github.io/TableOfCompanies",
   "name": "companiestable",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +14,8 @@
     "react-scripts": "3.3.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +41,7 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
+    "gh-pages": "^2.2.0",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "node-sass": "^4.13.0",

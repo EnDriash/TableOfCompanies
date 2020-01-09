@@ -5,13 +5,18 @@
     li{
         list-style-type: none;
         button{
-            width: 50px;
+            width: 30px;
             height: 30px;
             margin: 0.1vw;
             font-weight: 900;
             border: 1px solid $shadowcartcolor;
             border-radius: 5px;
             background-color: $fontcolor;
+            &:hover{
+                cursor: pointer;
+                background-color: $maincolor;
+                color: $fontcolor;
+            }
         }
     }
 }
