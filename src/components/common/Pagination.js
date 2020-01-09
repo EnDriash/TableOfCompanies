@@ -1,6 +1,8 @@
 import React from "react"
 import propTypes from "prop-types"
 
+import "./Pagination.scss"
+
 const Pagination = props => {
   const { itemsCount, pageSize, currentPage, onPageChange } = props
   const pagesCount = Math.ceil(itemsCount / pageSize)
@@ -13,7 +15,7 @@ const Pagination = props => {
 
   return (
     <nav>
-      <ul className="pagination">
+      <ul className="Pagination">
         {pages.map(page => (
           <li
             key={page}

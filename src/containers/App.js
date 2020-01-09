@@ -4,25 +4,22 @@ import axios from "axios"
 import "./App.scss"
 import "../sass/variables.scss"
 import "../sass/grid.scss"
+import paginate from "../utils/paginate"
 
 import Table from "./Table/Table"
 import Pagination from "../components/common/Pagination"
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
-  static paginate(items, pageNumber, pageSize) {
-    const startIndex = (pageNumber - 1) * pageSize
-    const datas = items.slice(startIndex, startIndex + pageSize)
-    return datas
-  }
-
   state = {
     data: [],
-    pageSize: 10,
+    companies: [],
+    pageSize: 50,
     currentPage: 1,
     sort: {
       cat: "id",
       isIncrease: true
-    }
+    },
+    search: ""
   }
 
   componentDidMount() {
@@ -33,6 +30,27 @@ class App extends Component {
     this.setState({
       currentPage: page
     })
+  }
+
+  // eslint-disable-next-line consistent-return
+  searchHandler = event => {
+    const { search, data } = this.state
+    if (event.key === "Enter" || event.type === "click") {
+      const searchedData = []
+      data.forEach(elem => {
+        if (
+          elem.city.includes(search) ||
+          elem.name.includes(search) ||
+          elem.id === Number(search)
+        ) {
+          searchedData.push(elem)
+        }
+      })
+      return searchedData.length !== 0
+        ? this.setState({ companies: searchedData })
+        : console.log("Brak firm")
+    }
+    this.setState({ search: event.target.value })
   }
 
   initApp() {
@@ -85,7 +103,7 @@ class App extends Component {
           const response = incomes.sort((a, b) => {
             return a.id - b.id
           })
-          this.setState({ data: response })
+          this.setState({ data: response, companies: response })
         })
       })
   }
@@ -116,17 +134,31 @@ class App extends Component {
   }
 
   render() {
-    const { data, pageSize, currentPage } = this.state
-    const companies = App.paginate(data, currentPage, pageSize)
+    const { companies, pageSize, currentPage, search } = this.state
+    const paginateCompanies = paginate(companies, currentPage, pageSize)
     return (
       <div className="App">
         <header>
-          <h4>Companies Table</h4>
+          <h5>Table of Companies</h5>
         </header>
         <main>
-          <Table data={companies} onSort={e => this.sortHandler(e)} />
+          <label htmlFor="search">
+            Search:
+            <input
+              id="search"
+              type="text"
+              placeholder="Name of company"
+              value={search}
+              onChange={this.searchHandler}
+              onKeyDown={this.searchHandler}
+            />
+          </label>
+          <button type="submit" onClick={this.searchHandler}>
+            Search
+          </button>
+          <Table data={paginateCompanies} onSort={e => this.sortHandler(e)} />
           <Pagination
-            itemsCount={data.length}
+            itemsCount={companies.length}
             pageSize={pageSize}
             currentPage={currentPage}
             onPageChange={this.handlePageChange}
