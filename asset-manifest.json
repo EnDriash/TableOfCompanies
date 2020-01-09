@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/EnDriash/TableOfCompanies/static/css/main.ae2ebea7.chunk.css",
-    "main.js": "/EnDriash/TableOfCompanies/static/js/main.3f00a747.chunk.js",
-    "main.js.map": "/EnDriash/TableOfCompanies/static/js/main.3f00a747.chunk.js.map",
-    "runtime-main.js": "/EnDriash/TableOfCompanies/static/js/runtime-main.3c47ca88.js",
-    "runtime-main.js.map": "/EnDriash/TableOfCompanies/static/js/runtime-main.3c47ca88.js.map",
-    "static/js/2.f851e2cb.chunk.js": "/EnDriash/TableOfCompanies/static/js/2.f851e2cb.chunk.js",
-    "static/js/2.f851e2cb.chunk.js.map": "/EnDriash/TableOfCompanies/static/js/2.f851e2cb.chunk.js.map",
-    "index.html": "/EnDriash/TableOfCompanies/index.html",
-    "precache-manifest.80799553187d3ed6ea6cb72480d533e8.js": "/EnDriash/TableOfCompanies/precache-manifest.80799553187d3ed6ea6cb72480d533e8.js",
-    "service-worker.js": "/EnDriash/TableOfCompanies/service-worker.js",
-    "static/css/main.ae2ebea7.chunk.css.map": "/EnDriash/TableOfCompanies/static/css/main.ae2ebea7.chunk.css.map",
-    "static/js/2.f851e2cb.chunk.js.LICENSE": "/EnDriash/TableOfCompanies/static/js/2.f851e2cb.chunk.js.LICENSE"
+    "main.css": "/TableOfCompanies/static/css/main.ae2ebea7.chunk.css",
+    "main.js": "/TableOfCompanies/static/js/main.3f00a747.chunk.js",
+    "main.js.map": "/TableOfCompanies/static/js/main.3f00a747.chunk.js.map",
+    "runtime-main.js": "/TableOfCompanies/static/js/runtime-main.6492a86e.js",
+    "runtime-main.js.map": "/TableOfCompanies/static/js/runtime-main.6492a86e.js.map",
+    "static/js/2.f851e2cb.chunk.js": "/TableOfCompanies/static/js/2.f851e2cb.chunk.js",
+    "static/js/2.f851e2cb.chunk.js.map": "/TableOfCompanies/static/js/2.f851e2cb.chunk.js.map",
+    "index.html": "/TableOfCompanies/index.html",
+    "precache-manifest.9a21f3e69886cf9c4b6926433a2b6a16.js": "/TableOfCompanies/precache-manifest.9a21f3e69886cf9c4b6926433a2b6a16.js",
+    "service-worker.js": "/TableOfCompanies/service-worker.js",
+    "static/css/main.ae2ebea7.chunk.css.map": "/TableOfCompanies/static/css/main.ae2ebea7.chunk.css.map",
+    "static/js/2.f851e2cb.chunk.js.LICENSE": "/TableOfCompanies/static/js/2.f851e2cb.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c47ca88.js",
+    "static/js/runtime-main.6492a86e.js",
     "static/js/2.f851e2cb.chunk.js",
     "static/css/main.ae2ebea7.chunk.css",
     "static/js/main.3f00a747.chunk.js"
