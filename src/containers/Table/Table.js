@@ -1,58 +1,16 @@
 import React from "react"
 import "./Table.scss"
 import TableRowContainer from "./TableRowContainer/TableRowContainer"
+import TableHeaders from "../../components/TableHeaders/TableHeaders"
 
 function Table(props) {
   // eslint-disable-next-line react/prop-types
-  const { data, onSort } = props
+  const { data, onSort, sort } = props
   return (
     <div className="Table">
       <table>
         <thead>
-          <tr>
-            <th
-              onClick={() => {
-                onSort("id")
-              }}
-            >
-              ID
-            </th>
-            <th
-              onClick={() => {
-                onSort("name")
-              }}
-            >
-              Name
-            </th>
-            <th
-              onClick={() => {
-                onSort("city")
-              }}
-            >
-              City
-            </th>
-            <th
-              onClick={() => {
-                onSort("sum")
-              }}
-            >
-              Total
-            </th>
-            <th
-              onClick={() => {
-                onSort("average")
-              }}
-            >
-              Average
-            </th>
-            <th
-              onClick={() => {
-                onSort("last")
-              }}
-            >
-              Last
-            </th>
-          </tr>
+          <TableHeaders onSort={onSort} activeHead={sort} />
         </thead>
         <tbody>
           <TableRowContainer data={data} />

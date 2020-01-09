@@ -1,40 +1,40 @@
 import React from "react"
-import "./TableRow.scss"
+import "./TableRowComponent.scss"
 import PropTypes from "prop-types"
 
-function TableRow({ data }) {
+function TableRowComponent({ data }) {
   return (
-    <tr className="TableRow">
+    <tr className="TableRowComponent">
       <td>{data.id}</td>
       <td>{data.name}</td>
       <td>{data.city}</td>
-      <td>{data.sum}</td>
+      <td>{data.total}</td>
       <td>{data.average}</td>
       <td>{data.last}</td>
     </tr>
   )
 }
 
-TableRow.propTypes = {
+TableRowComponent.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,
-    sum: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
     average: PropTypes.number.isRequired,
     last: PropTypes.number.isRequired
   })
 }
 
-TableRow.defaultProps = {
+TableRowComponent.defaultProps = {
   data: {
     id: 1,
     name: "Warsaw Comapny",
     city: "Warsaw",
-    sum: 342234.21,
+    total: 342234.21,
     average: 342234.21,
     last: 342234.21
   }
 }
 
-export default TableRow
+export default TableRowComponent

@@ -8,6 +8,9 @@ import paginate from "../utils/paginate"
 
 import Table from "./Table/Table"
 import Pagination from "../components/common/Pagination"
+
+import SearchIcon from "../public/icons/search-solid"
+
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   state = {
@@ -55,12 +58,12 @@ class App extends Component {
 
   initApp() {
     let data
-    let sum
+    let total
     let average
     let last
 
     const sumCounter = incomes => {
-      let total = incomes.reduce((prev, elem) => {
+      total = incomes.reduce((prev, elem) => {
         return prev + Number(elem.value)
       }, 0)
       total = Math.round(total * 100) / 100
@@ -91,10 +94,10 @@ class App extends Component {
             `https://recruitment.hal.skygate.io/incomes/${elem.id}`
           ).then(resp => {
             const { incomes } = resp.data
-            sum = sumCounter(incomes)
-            average = Math.round((sum / incomes.length) * 100) / 100
+            total = sumCounter(incomes)
+            average = Math.round((total / incomes.length) * 100) / 100
             last = lastIncomeFinder(incomes)
-            return { ...elem, sum, average, last }
+            return { ...elem, total, average, last }
           })
         })
       })
@@ -126,15 +129,12 @@ class App extends Component {
       }
     } else {
       data = data.reverse()
-      this.setState(state => ({
-        data,
-        sort: { cat: header, isIncrease: !state.isIncrease }
-      }))
+      this.setState({ sort: { cat: header, isIncrease: !sort.isIncrease } })
     }
   }
 
   render() {
-    const { companies, pageSize, currentPage, search } = this.state
+    const { companies, pageSize, currentPage, sort, search } = this.state
     const paginateCompanies = paginate(companies, currentPage, pageSize)
     return (
       <div className="App">
@@ -142,27 +142,33 @@ class App extends Component {
           <h5>Table of Companies</h5>
         </header>
         <main>
-          <label htmlFor="search">
-            Search:
-            <input
-              id="search"
-              type="text"
-              placeholder="Name of company"
-              value={search}
-              onChange={this.searchHandler}
-              onKeyDown={this.searchHandler}
-            />
-          </label>
-          <button type="submit" onClick={this.searchHandler}>
-            Search
-          </button>
-          <Table data={paginateCompanies} onSort={e => this.sortHandler(e)} />
-          <Pagination
-            itemsCount={companies.length}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={this.handlePageChange}
+          <Table
+            data={paginateCompanies}
+            onSort={e => this.sortHandler(e)}
+            sort={sort}
           />
+          <div className="NavPanel">
+            <div className="search">
+              <input
+                className="search-input"
+                type="text"
+                placeholder="Name,city or id"
+                value={search}
+                onChange={this.searchHandler}
+                onKeyDown={this.searchHandler}
+              />
+              <button type="submit" onClick={this.searchHandler}>
+                <SearchIcon width={15} />
+                <span>Search</span>
+              </button>
+            </div>
+            <Pagination
+              itemsCount={companies.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+          </div>
         </main>
         <footer>
           <p>@Copyright by Jedrzej Siewierski Krawczyk</p>

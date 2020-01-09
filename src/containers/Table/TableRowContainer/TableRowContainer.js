@@ -4,13 +4,13 @@ import React from "react"
 import "./TableRowContainer.scss"
 
 import Auxilliary from "../../../hoc/Auxilliary"
-import TableRow from "../../../components/TableRow/TableRow"
+import TableRowComponent from "../../../components/TableRowComponent/TableRowComponent"
 
 const TableRowContainer = ({ data }) => {
   return (
     <Auxilliary>
       {data.map(elem => {
-        return <TableRow key={elem.id} data={elem} />
+        return <TableRowComponent key={elem.id} data={elem} />
       })}
     </Auxilliary>
   )

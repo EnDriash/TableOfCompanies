@@ -1,3 +1,5 @@
+@import "../../sass/variables.scss";
+
 .Pagination{
     display: flex;
     li{
@@ -7,9 +9,14 @@
             height: 30px;
             margin: 0.1vw;
             font-weight: 900;
-            border: 1px solid grey;
+            border: 1px solid $shadowcartcolor;
             border-radius: 5px;
-            background-color: white;
+            background-color: $fontcolor;
         }
+    }
+}
+@media (max-width: 767px) {
+    .Pagination{
+        padding: 0;
     }
 }

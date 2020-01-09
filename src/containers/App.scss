@@ -1,10 +1,10 @@
-@import '../sass/variables.scss';
+@import "../sass/variables.scss";
 
 .App {
   position: relative;
   height: 100vh;
 
-  header{
+  header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
     color: $fontcolor;
     background-color: $maincolor;
   }
-  main{
+  main {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -23,8 +23,41 @@
     width: 80vw;
     margin: 1vh auto;
     box-shadow: $darknesscolor 2px 2px 8px;
+
+    .NavPanel {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .search {
+        input {
+          height: 27px;
+          width: 15vw;
+          border: 1px solid $shadowcartcolor;
+          border-radius: 5px;
+          padding: 0 5px;
+          font-size: $fontmin;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          background: $maincolor;
+          border: 1px solid $shadowcartcolor;
+          color: $fontcolor;
+          border-radius: 5px;
+          width: 100px;
+          height: 30px;
+          margin: 1vh;
+          outline: none;
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
   }
-  footer{
+  footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,21 +68,62 @@
     color: $fontcolor;
     background-color: black;
   }
-  
 }
-@media (max-width: 767px){
-
-  h1, h2 ,h3, h4, h5, h6, p, .Icon{
-    transform: scale(0.8);
+@media (max-width: 767px) {
+  h4,
+  h5,
+  h6,
+  p,
+  .Icon {
+    transform: scale(0.9);
+  }
+  .App {
+    header {
+      h5{
+        font-size: 30px;
+      }
+    }
+    main {
+      width: 100vw;
+      .NavPanel {
+        flex-direction: column;
+        .search input {
+          width: 50vw;
+        }
+      }
+    }
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  h1, h2 ,h3, h4, h5, h6, p, .Icon{
-    transform: scale(0.85);
+  h4,
+  h5,
+  h6,
+  th,
+  .Icon {
+    transform: scale(0.95);
+    &:hover {
+      transform: scale(0.95);
+    }
+  }
+  .App {
+    main {
+      width: 100vw;
+    }
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  h1, h2 ,h3, h4, h5, h6, p, .Icon{
-    transform: scale(0.9);
+  h4,
+  h5,
+  h6,
+  p,
+  th,
+  td,
+  .Icon {
+    transform: scale(0.95);
+  }
+  .App {
+    main {
+      width: 90vw;
+    }
   }
 }
