@@ -1,5 +1,6 @@
 import React from "react"
 import "./Table.scss"
+
 import TableRowContainer from "./TableRowContainer/TableRowContainer"
 import TableHeaders from "../../components/TableHeaders/TableHeaders"
 

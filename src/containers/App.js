@@ -40,10 +40,11 @@ class App extends Component {
     const { search, data } = this.state
     if (event.key === "Enter" || event.type === "click") {
       const searchedData = []
+
       data.forEach(elem => {
         if (
-          elem.city.includes(search) ||
-          elem.name.includes(search) ||
+          elem.city.toLowerCase().includes(search) ||
+          elem.name.toLowerCase().includes(search) ||
           elem.id === Number(search)
         ) {
           searchedData.push(elem)
@@ -51,9 +52,9 @@ class App extends Component {
       })
       return searchedData.length !== 0
         ? this.setState({ companies: searchedData })
-        : console.log("Brak firm")
+        : alert("Brak firm spełniających kryteria!")
     }
-    this.setState({ search: event.target.value })
+    this.setState({ search: event.target.value.toLowerCase() })
   }
 
   initApp() {

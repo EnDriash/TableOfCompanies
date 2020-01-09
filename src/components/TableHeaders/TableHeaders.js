@@ -43,14 +43,14 @@ TableHeaders.propTypes = {
   onSort: PropTypes.func.isRequired,
   activeHead: PropTypes.objectOf(
     PropTypes.shape({
-      cat: PropTypes.string.isRequired,
+      cat: PropTypes.object.isRequired,
       isIncrease: PropTypes.bool.isRequired
     })
   )
 }
 
 TableHeaders.defaultProps = {
-  activeHead: PropTypes.arrayOf(
+  activeHead: PropTypes.objectOf(
     PropTypes.shape({
       cat: "total",
       isIncrease: true
